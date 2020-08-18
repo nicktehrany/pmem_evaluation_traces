@@ -1,0 +1,173 @@
+Timestamp:      Type:
+
+3010.929559: funcgraph_entry:                   |  __x64_sys_mmap() {
+3010.929559: funcgraph_entry:                   |    ksys_mmap_pgoff() {
+3010.929559: funcgraph_entry:                   |      vm_mmap_pgoff() {
+3010.929559: funcgraph_entry:                   |        security_mmap_file() {
+3010.929559: funcgraph_entry:        0.120 us   |          cap_mmap_file();
+3010.929559: funcgraph_entry:        0.116 us   |          apparmor_mmap_file();
+3010.929559: funcgraph_entry:        0.118 us   |          ima_file_mmap();
+3010.929560: funcgraph_exit:         0.850 us   |        }
+3010.929560: funcgraph_entry:                   |        down_write_killable() {
+3010.929560: funcgraph_entry:                   |          _cond_resched() {
+3010.929560: funcgraph_entry:        0.118 us   |            rcu_all_qs();
+3010.929560: funcgraph_exit:         0.342 us   |          }
+3010.929560: funcgraph_exit:         0.567 us   |        }
+3010.929561: funcgraph_entry:                   |        do_mmap() {
+3010.929561: funcgraph_entry:                   |          get_unmapped_area() {
+3010.929561: funcgraph_entry:                   |            shmem_get_unmapped_area() {
+3010.929561: funcgraph_entry:                   |              arch_get_unmapped_area_topdown() {
+3010.929561: funcgraph_entry:        0.113 us   |                mpx_unmapped_area_check();
+3010.929561: funcgraph_entry:        0.114 us   |                get_mmap_base();
+3010.929561: funcgraph_entry:        0.127 us   |                unmapped_area_topdown();
+3010.929562: funcgraph_exit:         0.806 us   |              }
+3010.929562: funcgraph_exit:         1.047 us   |            }
+3010.929562: funcgraph_entry:                   |            security_mmap_addr() {
+3010.929562: funcgraph_entry:        0.114 us   |              cap_mmap_addr();
+3010.929562: funcgraph_exit:         0.355 us   |            }
+3010.929562: funcgraph_exit:         1.753 us   |          }
+3010.929563: funcgraph_entry:                   |          mmap_region() {
+3010.929563: funcgraph_entry:        0.111 us   |            may_expand_vm();
+3010.929563: funcgraph_entry:        0.115 us   |            vma_merge();
+3010.929563: funcgraph_entry:                   |            vm_area_alloc() {
+3010.929563: funcgraph_entry:                   |              kmem_cache_alloc() {
+3010.929563: funcgraph_entry:                   |                _cond_resched() {
+3010.929563: funcgraph_entry:        0.111 us   |                  rcu_all_qs();
+3010.929564: funcgraph_exit:         0.331 us   |                }
+3010.929564: funcgraph_entry:        0.113 us   |                should_failslab();
+3010.929564: funcgraph_entry:        0.128 us   |                memcg_kmem_get_cache();
+3010.929564: funcgraph_entry:        0.114 us   |                memcg_kmem_put_cache();
+3010.929564: funcgraph_exit:         1.281 us   |              }
+3010.929565: funcgraph_exit:         1.516 us   |            }
+3010.929565: funcgraph_entry:                   |            shmem_zero_setup() {
+3010.929565: funcgraph_entry:                   |              __shmem_file_setup.part.0() {
+3010.929565: funcgraph_entry:                   |                security_vm_enough_memory_mm() {
+3010.929565: funcgraph_entry:                   |                  cap_vm_enough_memory() {
+3010.929565: funcgraph_entry:        0.111 us   |                    cap_capable();
+3010.929565: funcgraph_exit:         0.335 us   |                  }
+3010.929566: funcgraph_entry:                   |                  __vm_enough_memory() {
+3010.929566: funcgraph_entry:        0.114 us   |                    _raw_spin_lock_irqsave();
+3010.929566: funcgraph_entry:        0.121 us   |                    __lock_text_start();
+3010.929566: funcgraph_exit:         0.577 us   |                  }
+3010.929566: funcgraph_exit:         1.266 us   |                }
+3010.929566: funcgraph_entry:                   |                shmem_get_inode() {
+3010.929566: funcgraph_entry:        0.112 us   |                  shmem_reserve_inode();
+3010.929567: funcgraph_entry:                   |                  new_inode() {
+3010.929567: funcgraph_entry:                   |                    new_inode_pseudo() {
+3010.929567: funcgraph_entry:                   |                      alloc_inode() {
+3010.929567: funcgraph_entry:                   |                        shmem_alloc_inode() {
+3010.929567: funcgraph_entry:                   |                          kmem_cache_alloc() {
+3010.929567: funcgraph_entry:                   |                            _cond_resched() {
+3010.929567: funcgraph_entry:        0.114 us   |                              rcu_all_qs();
+3010.929568: funcgraph_exit:         0.335 us   |                            }
+3010.929568: funcgraph_entry:        0.114 us   |                            should_failslab();
+3010.929568: funcgraph_entry:        0.122 us   |                            memcg_kmem_get_cache();
+3010.929568: funcgraph_entry:        0.114 us   |                            memcg_kmem_put_cache();
+3010.929568: funcgraph_exit:         1.328 us   |                          }
+3010.929569: funcgraph_exit:         1.561 us   |                        }
+3010.929569: funcgraph_entry:                   |                        inode_init_always() {
+3010.929569: funcgraph_entry:                   |                          make_kuid() {
+3010.929569: funcgraph_entry:        0.115 us   |                            map_id_range_down();
+3010.929569: funcgraph_exit:         0.332 us   |                          }
+3010.929569: funcgraph_entry:                   |                          make_kgid() {
+3010.929569: funcgraph_entry:        0.114 us   |                            map_id_range_down();
+3010.929570: funcgraph_exit:         0.339 us   |                          }
+3010.929570: funcgraph_entry:        0.114 us   |                          security_inode_alloc();
+3010.929570: funcgraph_entry:        0.114 us   |                          __init_rwsem();
+3010.929570: funcgraph_exit:         1.465 us   |                        }
+3010.929570: funcgraph_exit:         3.374 us   |                      }
+3010.929570: funcgraph_entry:        0.116 us   |                      _raw_spin_lock();
+3010.929571: funcgraph_exit:         3.829 us   |                    }
+3010.929571: funcgraph_entry:                   |                    inode_sb_list_add() {
+3010.929571: funcgraph_entry:        0.113 us   |                      _raw_spin_lock();
+3010.929571: funcgraph_exit:         0.338 us   |                    }
+3010.929571: funcgraph_exit:         4.493 us   |                  }
+3010.929571: funcgraph_entry:        0.122 us   |                  inode_init_owner();
+3010.929572: funcgraph_entry:                   |                  current_time() {
+3010.929572: funcgraph_entry:        0.114 us   |                    ktime_get_coarse_real_ts64();
+3010.929572: funcgraph_entry:        0.117 us   |                    timestamp_truncate();
+3010.929572: funcgraph_exit:         0.580 us   |                  }
+3010.929572: funcgraph_entry:        0.116 us   |                  mpol_shared_policy_init();
+3010.929572: funcgraph_entry:        0.114 us   |                  get_next_ino();
+3010.929573: funcgraph_exit:         6.358 us   |                }
+3010.929573: funcgraph_entry:        0.114 us   |                clear_nlink();
+3010.929573: funcgraph_entry:                   |                alloc_file_pseudo() {
+3010.929573: funcgraph_entry:                   |                  d_alloc_pseudo() {
+3010.929573: funcgraph_entry:                   |                    __d_alloc() {
+3010.929573: funcgraph_entry:                   |                      kmem_cache_alloc() {
+3010.929573: funcgraph_entry:                   |                        _cond_resched() {
+3010.929574: funcgraph_entry:        0.113 us   |                          rcu_all_qs();
+3010.929574: funcgraph_exit:         0.331 us   |                        }
+3010.929574: funcgraph_entry:        0.115 us   |                        should_failslab();
+3010.929574: funcgraph_entry:        0.127 us   |                        memcg_kmem_get_cache();
+3010.929574: funcgraph_entry:        0.115 us   |                        memcg_kmem_put_cache();
+3010.929575: funcgraph_exit:         1.264 us   |                      }
+3010.929575: funcgraph_entry:        0.115 us   |                      d_set_d_op();
+3010.929575: funcgraph_exit:         1.727 us   |                    }
+3010.929575: funcgraph_exit:         1.952 us   |                  }
+3010.929575: funcgraph_entry:        0.113 us   |                  d_set_d_op();
+3010.929575: funcgraph_entry:        0.113 us   |                  mntget();
+3010.929576: funcgraph_entry:                   |                  d_instantiate() {
+3010.929576: funcgraph_entry:        0.112 us   |                    security_d_instantiate();
+3010.929576: funcgraph_entry:        0.113 us   |                    _raw_spin_lock();
+3010.929576: funcgraph_entry:                   |                    __d_instantiate() {
+3010.929576: funcgraph_entry:        0.113 us   |                      d_flags_for_inode();
+3010.929577: funcgraph_entry:        0.114 us   |                      _raw_spin_lock();
+3010.929577: funcgraph_exit:         0.563 us   |                    }
+3010.929577: funcgraph_exit:         1.256 us   |                  }
+3010.929577: funcgraph_entry:                   |                  alloc_file() {
+3010.929577: funcgraph_entry:                   |                    alloc_empty_file() {
+3010.929577: funcgraph_entry:                   |                      __alloc_file() {
+3010.929577: funcgraph_entry:                   |                        kmem_cache_alloc() {
+3010.929577: funcgraph_entry:                   |                          _cond_resched() {
+3010.929578: funcgraph_entry:        0.110 us   |                            rcu_all_qs();
+3010.929578: funcgraph_exit:         0.332 us   |                          }
+3010.929578: funcgraph_entry:        0.115 us   |                          should_failslab();
+3010.929578: funcgraph_entry:        0.128 us   |                          memcg_kmem_get_cache();
+3010.929578: funcgraph_entry:        0.112 us   |                          memcg_kmem_put_cache();
+3010.929579: funcgraph_exit:         1.268 us   |                        }
+3010.929579: funcgraph_entry:                   |                        security_file_alloc() {
+3010.929579: funcgraph_entry:                   |                          kmem_cache_alloc() {
+3010.929579: funcgraph_entry:                   |                            _cond_resched() {
+3010.929579: funcgraph_entry:        0.111 us   |                              rcu_all_qs();
+3010.929579: funcgraph_exit:         0.331 us   |                            }
+3010.929579: funcgraph_entry:        0.112 us   |                            should_failslab();
+3010.929580: funcgraph_entry:        0.113 us   |                            memcg_kmem_put_cache();
+3010.929580: funcgraph_exit:         1.027 us   |                          }
+3010.929580: funcgraph_entry:                   |                          apparmor_file_alloc_security() {
+3010.929580: funcgraph_entry:                   |                            _cond_resched() {
+3010.929580: funcgraph_entry:        0.112 us   |                              rcu_all_qs();
+3010.929580: funcgraph_exit:         0.346 us   |                            }
+3010.929581: funcgraph_exit:         0.572 us   |                          }
+3010.929581: funcgraph_exit:         2.046 us   |                        }
+3010.929581: funcgraph_entry:        0.113 us   |                        __mutex_init();
+3010.929581: funcgraph_exit:         3.881 us   |                      }
+3010.929581: funcgraph_exit:         4.106 us   |                    }
+3010.929581: funcgraph_exit:         4.326 us   |                  }
+3010.929581: funcgraph_exit:         8.443 us   |                }
+3010.929582: funcgraph_exit:       + 16.751 us  |              }
+3010.929582: funcgraph_exit:       + 16.985 us  |            }
+3010.929582: funcgraph_entry:                   |            vma_link() {
+3010.929582: funcgraph_entry:                   |              down_write() {
+3010.929582: funcgraph_entry:                   |                _cond_resched() {
+3010.929582: funcgraph_entry:        0.110 us   |                  rcu_all_qs();
+3010.929582: funcgraph_exit:         0.349 us   |                }
+3010.929582: funcgraph_exit:         0.574 us   |              }
+3010.929583: funcgraph_entry:        0.114 us   |              __vma_link_list();
+3010.929583: funcgraph_entry:        0.139 us   |              __vma_link_rb();
+3010.929583: funcgraph_entry:                   |              __vma_link_file() {
+3010.929583: funcgraph_entry:        0.113 us   |                vma_interval_tree_insert();
+3010.929583: funcgraph_exit:         0.340 us   |              }
+3010.929584: funcgraph_entry:        0.113 us   |              up_write();
+3010.929584: funcgraph_exit:         1.988 us   |            }
+3010.929584: funcgraph_entry:        0.113 us   |            uprobe_mmap();
+3010.929584: funcgraph_entry:                   |            vma_set_page_prot() {
+3010.929584: funcgraph_entry:        0.118 us   |              vma_wants_writenotify();
+3010.929584: funcgraph_exit:         0.346 us   |            }
+3010.929585: funcgraph_exit:       + 22.114 us  |          }
+3010.929585: funcgraph_exit:       + 24.223 us  |        }
+3010.929585: funcgraph_entry:        0.119 us   |        up_write();
+3010.929585: funcgraph_entry:        0.121 us   |        userfaultfd_unmap_complete();
+3010.929585: funcgraph_exit:       + 26.569 us  |      }
+3010.929585: funcgraph_exit:       + 26.794 us  |    }
+3010.929586: funcgraph_exit:       + 27.035 us  |  }

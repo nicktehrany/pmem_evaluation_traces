@@ -1,0 +1,95 @@
+Timestamp:    Type:
+
+12775.406262: funcgraph_entry:                   |  __x64_sys_mmap() {
+12775.406262: funcgraph_entry:                   |    ksys_mmap_pgoff() {
+12775.406263: funcgraph_entry:                   |      fget() {
+12775.406263: funcgraph_entry:        0.315 us   |        __fget();
+12775.406264: funcgraph_exit:         0.911 us   |      }
+12775.406264: funcgraph_entry:        0.264 us   |      is_file_shm_hugepages();
+12775.406264: funcgraph_entry:                   |      vm_mmap_pgoff() {
+12775.406265: funcgraph_entry:                   |        security_mmap_file() {
+12775.406265: funcgraph_entry:        0.265 us   |          cap_mmap_file();
+12775.406266: funcgraph_entry:                   |          apparmor_mmap_file() {
+12775.406266: funcgraph_entry:                   |            common_mmap.part.0() {
+12775.406266: funcgraph_entry:                   |              common_file_perm() {
+12775.406266: funcgraph_entry:        0.267 us   |                aa_file_perm();
+12775.406267: funcgraph_exit:         0.794 us   |              }
+12775.406267: funcgraph_exit:         1.318 us   |            }
+12775.406267: funcgraph_exit:         1.829 us   |          }
+12775.406268: funcgraph_entry:        0.264 us   |          ima_file_mmap();
+12775.406268: funcgraph_exit:         3.624 us   |        }
+12775.406269: funcgraph_entry:                   |        down_write_killable() {
+12775.406269: funcgraph_entry:                   |          _cond_resched() {
+12775.406269: funcgraph_entry:        0.253 us   |            rcu_all_qs();
+12775.406270: funcgraph_exit:         0.780 us   |          }
+12775.406270: funcgraph_exit:         1.306 us   |        }
+12775.406270: funcgraph_entry:                   |        do_mmap() {
+12775.406270: funcgraph_entry:                   |          get_unmapped_area() {
+12775.406271: funcgraph_entry:                   |            thp_get_unmapped_area() {
+12775.406271: funcgraph_entry:                   |              arch_get_unmapped_area_topdown() {
+12775.406271: funcgraph_entry:        0.278 us   |                mpx_unmapped_area_check();
+12775.406272: funcgraph_entry:        0.260 us   |                get_mmap_base();
+12775.406272: funcgraph_entry:        0.296 us   |                get_align_mask();
+12775.406273: funcgraph_entry:        0.273 us   |                get_align_mask();
+12775.406274: funcgraph_entry:        0.592 us   |                unmapped_area_topdown();
+12775.406274: funcgraph_exit:         3.369 us   |              }
+12775.406275: funcgraph_exit:         3.955 us   |            }
+12775.406275: funcgraph_entry:                   |            security_mmap_addr() {
+12775.406275: funcgraph_entry:        0.274 us   |              cap_mmap_addr();
+12775.406276: funcgraph_exit:         0.828 us   |            }
+12775.406276: funcgraph_exit:         5.661 us   |          }
+12775.406277: funcgraph_entry:        0.293 us   |          path_noexec();
+12775.406277: funcgraph_entry:                   |          mmap_region() {
+12775.406277: funcgraph_entry:        0.271 us   |            may_expand_vm();
+12775.406278: funcgraph_entry:        0.258 us   |            is_file_shm_hugepages();
+12775.406279: funcgraph_entry:        0.280 us   |            vma_merge();
+12775.406279: funcgraph_entry:                   |            vm_area_alloc() {
+12775.406279: funcgraph_entry:                   |              kmem_cache_alloc() {
+12775.406280: funcgraph_entry:                   |                _cond_resched() {
+12775.406280: funcgraph_entry:        0.281 us   |                  rcu_all_qs();
+12775.406280: funcgraph_exit:         0.790 us   |                }
+12775.406281: funcgraph_entry:        0.264 us   |                should_failslab();
+12775.406281: funcgraph_entry:        0.365 us   |                memcg_kmem_get_cache();
+12775.406282: funcgraph_entry:        0.282 us   |                memcg_kmem_put_cache();
+12775.406283: funcgraph_exit:         3.109 us   |              }
+12775.406283: funcgraph_exit:         3.650 us   |            }
+12775.406283: funcgraph_entry:                   |            xfs_file_mmap() {
+12775.406283: funcgraph_entry:        0.274 us   |              xfs_find_daxdev_for_inode();
+12775.406284: funcgraph_entry:                   |              touch_atime() {
+12775.406284: funcgraph_entry:                   |                atime_needs_update() {
+12775.406285: funcgraph_entry:                   |                  current_time() {
+12775.406285: funcgraph_entry:        0.260 us   |                    ktime_get_coarse_real_ts64();
+12775.406285: funcgraph_entry:        0.259 us   |                    timestamp_truncate();
+12775.406286: funcgraph_exit:         1.311 us   |                  }
+12775.406286: funcgraph_exit:         1.966 us   |                }
+12775.406287: funcgraph_exit:         2.483 us   |              }
+12775.406287: funcgraph_exit:         3.571 us   |            }
+12775.406287: funcgraph_entry:                   |            vma_link() {
+12775.406287: funcgraph_entry:                   |              down_write() {
+12775.406288: funcgraph_entry:                   |                _cond_resched() {
+12775.406288: funcgraph_entry:        0.251 us   |                  rcu_all_qs();
+12775.406288: funcgraph_exit:         0.759 us   |                }
+12775.406289: funcgraph_exit:         1.294 us   |              }
+12775.406289: funcgraph_entry:        0.258 us   |              __vma_link_list();
+12775.406289: funcgraph_entry:                   |              __vma_link_rb() {
+12775.406290: funcgraph_entry:        0.300 us   |                vma_gap_callbacks_rotate();
+12775.406291: funcgraph_exit:         1.223 us   |              }
+12775.406291: funcgraph_entry:                   |              __vma_link_file() {
+12775.406291: funcgraph_entry:        0.395 us   |                vma_interval_tree_insert();
+12775.406292: funcgraph_exit:         0.938 us   |              }
+12775.406292: funcgraph_entry:        0.270 us   |              up_write();
+12775.406293: funcgraph_exit:         5.561 us   |            }
+12775.406293: funcgraph_entry:        0.271 us   |            uprobe_mmap();
+12775.406294: funcgraph_entry:                   |            vma_set_page_prot() {
+12775.406294: funcgraph_entry:        0.360 us   |              vma_wants_writenotify();
+12775.406295: funcgraph_exit:         1.177 us   |            }
+12775.406295: funcgraph_exit:       + 17.926 us  |          }
+12775.406295: funcgraph_exit:       + 25.161 us  |        }
+12775.406296: funcgraph_entry:        0.266 us   |        up_write();
+12775.406296: funcgraph_entry:        0.267 us   |        userfaultfd_unmap_complete();
+12775.406297: funcgraph_exit:       + 32.233 us  |      }
+12775.406297: funcgraph_entry:                   |      fput() {
+12775.406297: funcgraph_entry:        0.291 us   |        fput_many();
+12775.406298: funcgraph_exit:         0.828 us   |      }
+12775.406298: funcgraph_exit:       + 35.653 us  |    }
+12775.406298: funcgraph_exit:       + 36.526 us  |  }
